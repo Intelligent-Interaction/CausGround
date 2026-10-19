@@ -1,0 +1,13 @@
+{
+  "domain": "VirtualHome",
+  "actor": "agent",
+  "aliases": {
+    "apple": "food_apple",
+    "bread": "food_bread",
+    "light switch": "light"
+  },
+  "holding_relations": [
+    "HOLDS_LH",
+    "HOLDS_RH"
+  ]
+}

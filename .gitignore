@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+outputs/
+.venv/
+.env
+models/
+/data/virtualhome/trajectories.jsonl.xz

@@ -1,0 +1,25 @@
+[
+  {
+    "id": "switch-on-computer",
+    "task": "Turn on the computer.",
+    "pre_image": "computer_before.png",
+    "post_image": "computer_after.png",
+    "pre_obs": "The acting agent is a person. The desktop device is a computer.",
+    "post_obs": "The acting agent is a person. The desktop device is a computer.",
+    "action": {
+      "name": "SWITCHON",
+      "actor": {
+        "type": "person"
+      },
+      "arguments": [
+        {
+          "role": "target",
+          "node": {
+            "type": "computer"
+          }
+        }
+      ]
+    },
+    "outcome": "success"
+  }
+]

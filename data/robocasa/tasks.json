@@ -1,0 +1,162 @@
+[
+  {
+    "id": "ArrangeBreadBasket",
+    "description": "Open the cabinet, pick up the bread from the cabinet and place it in the basket. Then move the basket to the dining counter.",
+    "short": "开柜，取面包放入篮子，再把篮子放到餐台。"
+  },
+  {
+    "id": "ArrangeTea",
+    "description": "Pick the kettle from the counter and place it on the tray. Then pick the mug from the cabinet and place it on the tray. Then close the cabinet doors.",
+    "short": "把水壶和杯子放到托盘，最后关柜门。"
+  },
+  {
+    "id": "BreadSelection",
+    "description": "From the different types of pastries on the counter, select a croissant and place it on the cutting board. Then retrieve a jar of jam from the cabinet and place it alongside the croissant on the cutting board.",
+    "short": "选择羊角面包和果酱，放到砧板上。"
+  },
+  {
+    "id": "CategorizeCondiments",
+    "description": "Put the shaker and condiment bottle from the counter next to their counterparts in the cabinet.",
+    "short": "按类别整理调味瓶。"
+  },
+  {
+    "id": "CuttingToolSelection",
+    "description": "Place the appropriate cutting tool for cutting the cucumber skin on the cutting board.",
+    "short": "选择合适的切割工具并放到工作区。"
+  },
+  {
+    "id": "DeliverStraw",
+    "description": "Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+    "short": "取吸管并送到指定位置。"
+  },
+  {
+    "id": "GarnishPancake",
+    "description": "Take the strawberry from the fridge and place it on top of the pancake, located on the dining counter.",
+    "short": "取配料并装饰煎饼。"
+  },
+  {
+    "id": "GatherTableware",
+    "description": "Gather all objects into one cabinet and sort the glasses and bowls to opposite sides.",
+    "short": "收集任务需要的餐具。"
+  },
+  {
+    "id": "GetToastedBread",
+    "description": "Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter.",
+    "short": "烘烤面包并取出。"
+  },
+  {
+    "id": "HeatKebabSandwich",
+    "description": "Pick up the kebab skewer and baguette bread, and place them inside the toaster oven. Close the toaster oven door and start by setting the timer.",
+    "short": "准备并加热烤肉三明治。"
+  },
+  {
+    "id": "KettleBoiling",
+    "description": "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on.",
+    "short": "装水并烧开水壶。"
+  },
+  {
+    "id": "LoadDishwasher",
+    "description": "Pick up the cup and bowl from the counter, place them in the dishwasher, and close the dishwasher door.",
+    "short": "把餐具放入洗碗机。"
+  },
+  {
+    "id": "MakeIceLemonade",
+    "description": "Grab a lemon wedge from the fridge and one ice cube from the ice bowl, and put them in the glass of lemonade.",
+    "short": "制作加冰柠檬水。"
+  },
+  {
+    "id": "PackIdenticalLunches",
+    "description": "Place one mushroom and one steak in each tupperware on the nearby counter, to pack two identical lunches.",
+    "short": "把相同食物分装成午餐盒。"
+  },
+  {
+    "id": "PanTransfer",
+    "description": "Pick up the pan and dump the vegetables in it onto the plate. Then return the pan to the stove.",
+    "short": "把锅中食物转移到容器。"
+  },
+  {
+    "id": "PortionHotDogs",
+    "description": "Place one bun and one sausage from the bowl on each plate.",
+    "short": "将热狗分份装盘。"
+  },
+  {
+    "id": "PreSoakPan",
+    "description": "Pick the pan and sponge and place them into the sink. Then turn on the water.",
+    "short": "给锅加水并预浸泡。"
+  },
+  {
+    "id": "PrepareCoffee",
+    "description": "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button.",
+    "short": "准备咖啡并放到指定位置。"
+  },
+  {
+    "id": "RecycleBottlesByType",
+    "description": "Move the plastic bottles in the middle to the plastics group, and the glass bottles in the middle to the glass group.",
+    "short": "按类型分类回收瓶子。"
+  },
+  {
+    "id": "RinseSinkBasin",
+    "description": "Turn on the sink and manuever the spout to wash all locations of the sink basin.",
+    "short": "冲洗水槽盆。"
+  },
+  {
+    "id": "ScrubCuttingBoard",
+    "description": "Pick up the sponge from the counter and clean the cutting board by briefly scrubbing or pressing down on the cutting board. Once finished, release the sponge.",
+    "short": "用工具刷洗砧板。"
+  },
+  {
+    "id": "SearingMeat",
+    "description": "Grab the pan from the cabinet and place it on the rear center burner on the stove. Then place the chicken drumstick on the stove and turn the burner on.",
+    "short": "取肉并在炉具上煎制。"
+  },
+  {
+    "id": "SeparateFreezerRack",
+    "description": "Take the meat container that has the fish and place it on the second highest rack of the freezer. Then take the vegetable container that has the broccoli and eggplant and place it on the highest rack of the freezer.",
+    "short": "打开冷冻柜并操作搁架。"
+  },
+  {
+    "id": "SetUpCuttingStation",
+    "description": "Pick up the knife from the drawer and place it on the cutting board. Then place the meat from the plate to the cutting board.",
+    "short": "准备砧板、工具和工作区。"
+  },
+  {
+    "id": "StackBowlsCabinet",
+    "description": "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl.",
+    "short": "把碗叠放进柜子。"
+  },
+  {
+    "id": "SteamInMicrowave",
+    "description": "Pick the eggplant from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button.",
+    "short": "准备食物并在微波炉中蒸热。"
+  },
+  {
+    "id": "StirVegetables",
+    "description": "Put the eggplant and avocado in the pot. Retrieve the spatula and lightly stir the vegetables in the pot.",
+    "short": "取工具和蔬菜并翻拌。"
+  },
+  {
+    "id": "StoreLeftoversInBowl",
+    "description": "Pick the chicken drumstick and carrot from their plates and place them in the bowl. Then put the bowl in the fridge.",
+    "short": "把剩余食物装进碗里。"
+  },
+  {
+    "id": "WaffleReheat",
+    "description": "Open the microwave, place the bowl with waffle inside the microwave, then close the microwave door and turn it on.",
+    "short": "把华夫饼重新加热。"
+  },
+  {
+    "id": "WashFruitColander",
+    "description": "Put the colander in the sink, put the peach in the colander, and turn on the sink faucet and pour water over the colander.",
+    "short": "用滤篮清洗水果。"
+  },
+  {
+    "id": "WashLettuce",
+    "description": "Wash the lettuce in the sink by running water over it.",
+    "short": "冲洗生菜。"
+  },
+  {
+    "id": "WeighIngredients",
+    "description": "Pick the honey bottle and place it on the digital scale for weighing, and close the cabinet.",
+    "short": "称量指定食材。"
+  }
+]

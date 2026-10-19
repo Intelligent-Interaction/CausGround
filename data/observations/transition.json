@@ -1,0 +1,62 @@
+[
+  {
+    "id": "open-fridge",
+    "before": {
+      "nodes": [
+        {
+          "id": "robot",
+          "type": "robot",
+          "attributes": {}
+        },
+        {
+          "id": "fridge",
+          "type": "fridge",
+          "attributes": {
+            "is_open": false
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "robot",
+          "relation": "CLOSE",
+          "target": "fridge"
+        }
+      ]
+    },
+    "action": {
+      "name": "OPEN",
+      "actor": "robot",
+      "arguments": [
+        {
+          "role": "target",
+          "node": "fridge"
+        }
+      ]
+    },
+    "after": {
+      "nodes": [
+        {
+          "id": "robot",
+          "type": "robot",
+          "attributes": {}
+        },
+        {
+          "id": "fridge",
+          "type": "fridge",
+          "attributes": {
+            "is_open": true
+          }
+        }
+      ],
+      "edges": [
+        {
+          "source": "robot",
+          "relation": "CLOSE",
+          "target": "fridge"
+        }
+      ]
+    },
+    "outcome": "success"
+  }
+]

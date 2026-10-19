@@ -1,0 +1,4065 @@
+[
+  {
+    "id": "task-01-instance-01",
+    "task": "Go to the bedroom, approach the light switch there, and turn the bedroom light on.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_0",
+          "type": "node_attribute",
+          "node": "lightswitch",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_0",
+          "action": "SWITCHON",
+          "arguments": [
+            "lightswitch"
+          ],
+          "target": "lightswitch"
+        }
+      ],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "task-01-instance-02",
+    "task": "Go to the dining room, approach its light switch, and turn the dining-room light on.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_0",
+          "type": "node_attribute",
+          "node": "lightswitch",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_0",
+          "action": "SWITCHON",
+          "arguments": [
+            "lightswitch"
+          ],
+          "target": "lightswitch"
+        }
+      ],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "turn-off-tv-s1",
+    "task": "Go to the home office, approach the television, and switch it off.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "television",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": false
+        }
+      ],
+      "required_events": [],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "turn-off-tv-s3",
+    "task": "Go to the home office, approach the television, and switch it off.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "television",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": false
+        }
+      ],
+      "required_events": [],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "turn-on-computer-s1",
+    "task": "Go to the home office, approach the computer, and switch it on.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "computer",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "turn-on-computer-s4",
+    "task": "Go to the home office, approach the computer, and switch it on.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "computer",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "go-to-toilet-s4",
+    "task": "Go to the bathroom, approach the toilet, and sit on it.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "character",
+          "attribute": "posture",
+          "operator": "equals",
+          "value": "sitting"
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "SIT",
+          "arguments": [
+            "toilet"
+          ],
+          "target": "toilet"
+        }
+      ],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "go-to-toilet-s5",
+    "task": "Go to the bathroom, approach the toilet, and sit on it.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "character",
+          "attribute": "posture",
+          "operator": "equals",
+          "value": "sitting"
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "SIT",
+          "arguments": [
+            "toilet"
+          ],
+          "target": "toilet"
+        }
+      ],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "watch-tv-s2",
+    "task": "Go to the home office, switch on the television, face it, and watch it while standing.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_0",
+          "type": "node_attribute",
+          "node": "television",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        },
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "character",
+          "relation": "FACING",
+          "target": "television",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "TURNTO",
+          "arguments": [
+            "television"
+          ],
+          "target": "television"
+        },
+        {
+          "id": "event_2",
+          "action": "WATCH",
+          "arguments": [
+            "television"
+          ],
+          "target": "television"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "goal_0",
+          "after": "event_1"
+        },
+        {
+          "before": "event_1",
+          "after": "event_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "watch-tv-s6",
+    "task": "Go to the home office, switch on the television, then sit on the couch and watch it.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_0",
+          "type": "node_attribute",
+          "node": "television",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        },
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "character",
+          "attribute": "posture",
+          "operator": "equals",
+          "value": "sitting"
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "SIT",
+          "arguments": [
+            "couch"
+          ],
+          "target": "couch"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "goal_0",
+          "after": "event_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "expanded-add-paper-to-printer-s3-split14_3",
+    "task": "Retrieve the printing paper from the desk and load it into the fax machine's paper tray.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "printing_paper",
+          "relation": "INSIDE",
+          "target": "fax_machine",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "GRAB",
+          "arguments": [
+            "printing_paper"
+          ],
+          "target": "printing_paper"
+        },
+        {
+          "id": "event_2",
+          "action": "PUTIN",
+          "arguments": [
+            "printing_paper",
+            "fax_machine"
+          ],
+          "target": "printing_paper"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "expanded-eat-cheese-s3-split73_4",
+    "task": "Retrieve the cheese from the freezer and eat it.",
+    "goals": {
+      "terminal_predicates": [],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "OPEN",
+          "arguments": [
+            "freezer"
+          ],
+          "target": "freezer"
+        },
+        {
+          "id": "event_2",
+          "action": "GRAB",
+          "arguments": [
+            "food_cheese"
+          ],
+          "target": "food_cheese"
+        },
+        {
+          "id": "event_3",
+          "action": "EAT",
+          "arguments": [
+            "food_cheese"
+          ],
+          "target": "food_cheese"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "expanded-gaze-out-window-s1-split86_2",
+    "task": "Go to the home-office window and look outside through it.",
+    "goals": {
+      "terminal_predicates": [],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "LOOKAT",
+          "arguments": [
+            "window"
+          ],
+          "target": "window"
+        }
+      ],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "expanded-greet-guests-s1-split72_3",
+    "task": "Find the child in the home office and greet them.",
+    "goals": {
+      "terminal_predicates": [],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "FIND",
+          "arguments": [
+            "child"
+          ],
+          "target": "child"
+        },
+        {
+          "id": "event_2",
+          "action": "GREET",
+          "arguments": [
+            "child"
+          ],
+          "target": "child"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "expanded-look-at-painting-s4-split11_4",
+    "task": "Go to the drawing in the home office and look at it.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "character",
+          "relation": "FACING",
+          "target": "drawing",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "LOOKAT",
+          "arguments": [
+            "drawing"
+          ],
+          "target": "drawing"
+        }
+      ],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "expanded-pet-dog-s1-split99_2",
+    "task": "Find the dog and pet it.",
+    "goals": {
+      "terminal_predicates": [],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "FIND",
+          "arguments": [
+            "dog"
+          ],
+          "target": "dog"
+        },
+        {
+          "id": "event_2",
+          "action": "TOUCH",
+          "arguments": [
+            "dog"
+          ],
+          "target": "dog"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "expanded-pick-up-phone-s1-file264_1",
+    "task": "Enter the home office and pick up the phone from the desk.",
+    "goals": {
+      "terminal_predicates": [],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WALK",
+          "arguments": [
+            "home_office"
+          ],
+          "target": "home_office"
+        },
+        {
+          "id": "event_2",
+          "action": "GRAB",
+          "arguments": [
+            "phone"
+          ],
+          "target": "phone"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "go-to-sleep-scene4-file854-2-01",
+    "task": "Go to the bedroom and lie down on the bed to sleep.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_0",
+          "type": "node_attribute",
+          "node": "character",
+          "attribute": "posture",
+          "operator": "equals",
+          "value": "sleeping"
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_0",
+          "action": "LIE",
+          "arguments": [
+            "bed"
+          ],
+          "target": "bed"
+        },
+        {
+          "id": "event_1",
+          "action": "SLEEP",
+          "arguments": [],
+          "target": null
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_0",
+          "after": "event_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "listen-to-music-scene4-file727-1-01",
+    "task": "Turn on the stereo in the home office and sit on the couch to listen.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_0",
+          "type": "node_attribute",
+          "node": "stereo",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        },
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "character",
+          "attribute": "posture",
+          "operator": "equals",
+          "value": "sitting"
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "SIT",
+          "arguments": [
+            "couch"
+          ],
+          "target": "couch"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "goal_0",
+          "after": "event_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "open-window-scene4-split36-1-01",
+    "task": "Go to the home-office window and open it.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "window",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "relax-on-sofa-scene5-file674-2-01",
+    "task": "Go to the couch, sit down, and lie on it to relax.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "couch",
+          "attribute": "posture",
+          "operator": "equals",
+          "value": "lying"
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "LIE",
+          "arguments": [
+            "couch"
+          ],
+          "target": "couch"
+        }
+      ],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "task-02-instance-01",
+    "task": "Turn off the bedroom light using its light switch.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_0",
+          "type": "node_attribute",
+          "node": "light",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": false
+        }
+      ],
+      "required_events": [],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "task-04-instance-01",
+    "task": "Retrieve the novel from the bedroom and read it.",
+    "goals": {
+      "terminal_predicates": [],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "GRAB",
+          "arguments": [
+            "novel"
+          ],
+          "target": "novel"
+        },
+        {
+          "id": "event_2",
+          "action": "READ",
+          "arguments": [
+            "novel"
+          ],
+          "target": "novel"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "task-05-instance-01",
+    "task": "Pick up the water glass from the dining table, drink from it, and return it to the table.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "water_glass",
+          "relation": "ON",
+          "target": "table",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "GRAB",
+          "arguments": [
+            "water_glass"
+          ],
+          "target": "water_glass"
+        },
+        {
+          "id": "event_2",
+          "action": "DRINK",
+          "arguments": [
+            "water_glass"
+          ],
+          "target": "water_glass"
+        },
+        {
+          "id": "event_3",
+          "action": "PUTOBJBACK",
+          "arguments": [
+            "water_glass"
+          ],
+          "target": "water_glass"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "watch-tv-scene1-file441-2-01",
+    "task": "Go to the television in the home office and turn it on so it is ready to watch.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_0",
+          "type": "node_attribute",
+          "node": "television",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "medium-email-s1-desk",
+    "task": "Go to the home office, sit on the chair at the desk, switch on the computer, and type an email with the keyboard.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "computer",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        },
+        {
+          "id": "goal_2",
+          "type": "node_attribute",
+          "node": "character",
+          "attribute": "posture",
+          "operator": "equals",
+          "value": "sitting"
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WALK",
+          "arguments": [
+            "home_office"
+          ],
+          "target": "home_office"
+        },
+        {
+          "id": "event_2",
+          "action": "SIT",
+          "arguments": [
+            "chair"
+          ],
+          "target": "chair"
+        },
+        {
+          "id": "event_4",
+          "action": "TYPE",
+          "arguments": [
+            "keyboard"
+          ],
+          "target": "keyboard"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "goal_1"
+        },
+        {
+          "before": "goal_1",
+          "after": "event_4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "medium-email-s2-open-mail",
+    "task": "Go to the home office, switch on the computer, open the mail application, and type an email with the keyboard.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "computer",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        },
+        {
+          "id": "goal_2",
+          "type": "node_attribute",
+          "node": "mail",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_3",
+          "action": "TYPE",
+          "arguments": [
+            "keyboard"
+          ],
+          "target": "keyboard"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "goal_1",
+          "after": "goal_2"
+        },
+        {
+          "before": "goal_2",
+          "after": "event_3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "medium-wash-hands-s2-soap",
+    "task": "Go to the bathroom sink, turn on the faucet, squeeze the soap, and wash both hands under running water.",
+    "goals": {
+      "terminal_predicates": [],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "TURNTO",
+          "arguments": [
+            "sink"
+          ],
+          "target": "sink"
+        },
+        {
+          "id": "event_2",
+          "action": "SWITCHON",
+          "arguments": [
+            "faucet"
+          ],
+          "target": "faucet"
+        },
+        {
+          "id": "event_3",
+          "action": "SQUEEZE",
+          "arguments": [
+            "soap"
+          ],
+          "target": "soap"
+        },
+        {
+          "id": "event_4",
+          "action": "WASH",
+          "arguments": [
+            "hands_both"
+          ],
+          "target": "hands_both"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "medium-wash-hands-s4-faucet",
+    "task": "At the bathroom sink, turn on the faucet, pick up the soap, scrub both hands, return the soap, and then wash both hands; this sequence ends with the faucet still on.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "faucet",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_2",
+          "action": "GRAB",
+          "arguments": [
+            "soap"
+          ],
+          "target": "soap"
+        },
+        {
+          "id": "event_3",
+          "action": "SCRUB",
+          "arguments": [
+            "hands_both"
+          ],
+          "target": "hands_both"
+        },
+        {
+          "id": "event_4",
+          "action": "PUTOBJBACK",
+          "arguments": [
+            "soap"
+          ],
+          "target": "soap"
+        },
+        {
+          "id": "event_5",
+          "action": "WASH",
+          "arguments": [
+            "hands_both"
+          ],
+          "target": "hands_both"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "goal_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        },
+        {
+          "before": "event_4",
+          "after": "event_5"
+        }
+      ]
+    }
+  },
+  {
+    "id": "medium-pet-cat-s2-direct",
+    "task": "Go to the home office, approach the cat, face and look at it, and pet it.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "character",
+          "relation": "FACING",
+          "target": "cat",
+          "present": true
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "character",
+          "relation": "CLOSE",
+          "target": "cat",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WALK",
+          "arguments": [
+            "home_office"
+          ],
+          "target": "home_office"
+        },
+        {
+          "id": "event_2",
+          "action": "LOOKAT",
+          "arguments": [
+            "cat"
+          ],
+          "target": "cat"
+        },
+        {
+          "id": "event_3",
+          "action": "PUSH",
+          "arguments": [
+            "cat"
+          ],
+          "target": "cat"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "medium-pet-cat-s1-direct-walk",
+    "task": "Go to the home office, find and approach the cat, face and look at it, and pet it.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "character",
+          "relation": "FACING",
+          "target": "cat",
+          "present": true
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "character",
+          "relation": "CLOSE",
+          "target": "cat",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WALK",
+          "arguments": [
+            "home_office"
+          ],
+          "target": "home_office"
+        },
+        {
+          "id": "event_2",
+          "action": "FIND",
+          "arguments": [
+            "cat"
+          ],
+          "target": "cat"
+        },
+        {
+          "id": "event_3",
+          "action": "LOOKAT",
+          "arguments": [
+            "cat"
+          ],
+          "target": "cat"
+        },
+        {
+          "id": "event_4",
+          "action": "PUSH",
+          "arguments": [
+            "cat"
+          ],
+          "target": "cat"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "medium-start-computer-s1",
+    "task": "Go to the home office, sit in the desk chair, face the computer, and switch it on; remain seated with the computer on.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "character",
+          "attribute": "posture",
+          "operator": "equals",
+          "value": "sitting"
+        },
+        {
+          "id": "goal_2",
+          "type": "node_attribute",
+          "node": "computer",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WALK",
+          "arguments": [
+            "home_office"
+          ],
+          "target": "home_office"
+        },
+        {
+          "id": "event_2",
+          "action": "SIT",
+          "arguments": [
+            "chair"
+          ],
+          "target": "chair"
+        },
+        {
+          "id": "event_3",
+          "action": "TURNTO",
+          "arguments": [
+            "computer"
+          ],
+          "target": "computer"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "goal_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "medium-turn-on-computer-s1-pull-chair",
+    "task": "Go to the home office, pull out the desk chair, sit down, switch on the computer, and face it.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "computer",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "character",
+          "relation": "FACING",
+          "target": "computer",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WALK",
+          "arguments": [
+            "home_office"
+          ],
+          "target": "home_office"
+        },
+        {
+          "id": "event_2",
+          "action": "PULL",
+          "arguments": [
+            "chair"
+          ],
+          "target": "chair"
+        },
+        {
+          "id": "event_3",
+          "action": "SIT",
+          "arguments": [
+            "chair"
+          ],
+          "target": "chair"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "goal_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "medium-watch-tv-s1-couch",
+    "task": "Go to the home office, switch on the television before sitting on the couch, then face it and watch TV.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_0",
+          "type": "node_attribute",
+          "node": "television",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        },
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "character",
+          "relation": "FACING",
+          "target": "television",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "SIT",
+          "arguments": [
+            "couch"
+          ],
+          "target": "couch"
+        },
+        {
+          "id": "event_2",
+          "action": "WATCH",
+          "arguments": [
+            "television"
+          ],
+          "target": "television"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "goal_0",
+          "after": "event_1"
+        },
+        {
+          "before": "event_1",
+          "after": "event_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "medium-watch-tv-s4-couch",
+    "task": "Go to the home office, switch on the television before sitting on the couch, and then watch the program.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_0",
+          "type": "node_attribute",
+          "node": "television",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "SIT",
+          "arguments": [
+            "couch"
+          ],
+          "target": "couch"
+        },
+        {
+          "id": "event_2",
+          "action": "WATCH",
+          "arguments": [
+            "television"
+          ],
+          "target": "television"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "goal_0",
+          "after": "event_1"
+        },
+        {
+          "before": "event_1",
+          "after": "event_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "expanded-bring-dirty-plate-to-sink-s1-split9_9",
+    "task": "Move the plate near the dining table to the sink.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "plate",
+          "relation": "ON",
+          "target": "sink",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "PUTOBJBACK",
+          "arguments": [
+            "plate"
+          ],
+          "target": "plate"
+        }
+      ],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "expanded-clean-screen-s2-split12_2",
+    "task": "Use the rag to wipe the computer screen, then return the rag to its original place.",
+    "goals": {
+      "terminal_predicates": [],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WIPE",
+          "arguments": [
+            "computer"
+          ],
+          "target": "computer"
+        },
+        {
+          "id": "event_2",
+          "action": "PUTOBJBACK",
+          "arguments": [
+            "rag"
+          ],
+          "target": "rag"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "expanded-get-toilet-paper-s1-split1_11",
+    "task": "Retrieve a roll of toilet paper from the bathroom cabinet and leave the cabinet closed.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "toilet_paper",
+          "relation": "INSIDE",
+          "target": "bathroom_cabinet",
+          "present": true
+        },
+        {
+          "id": "goal_2",
+          "type": "node_attribute",
+          "node": "bathroom_cabinet",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": false
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "FIND",
+          "arguments": [
+            "toilet_paper"
+          ],
+          "target": "toilet_paper"
+        },
+        {
+          "id": "event_2",
+          "action": "GRAB",
+          "arguments": [
+            "toilet_paper"
+          ],
+          "target": "toilet_paper"
+        },
+        {
+          "id": "event_3",
+          "action": "PUTOBJBACK",
+          "arguments": [
+            "toilet_paper"
+          ],
+          "target": "toilet_paper"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "goal_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "expanded-make-popcorn-s2-split87_1",
+    "task": "Place the popcorn bag inside the microwave, close it, and turn the microwave on.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "bag",
+          "relation": "INSIDE",
+          "target": "microwave",
+          "present": true
+        },
+        {
+          "id": "goal_2",
+          "type": "node_attribute",
+          "node": "microwave",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": false
+        },
+        {
+          "id": "goal_3",
+          "type": "node_attribute",
+          "node": "microwave",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "PUTIN",
+          "arguments": [
+            "bag",
+            "microwave"
+          ],
+          "target": "bag"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "goal_2"
+        },
+        {
+          "before": "goal_2",
+          "after": "goal_3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "read-book-scene2-file651-2-01",
+    "task": "Pick up the novel, sit on the couch, and read it.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "character",
+          "attribute": "posture",
+          "operator": "equals",
+          "value": "sitting"
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "character",
+          "relation": "HOLDS_RH",
+          "target": "novel",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "GRAB",
+          "arguments": [
+            "novel"
+          ],
+          "target": "novel"
+        },
+        {
+          "id": "event_2",
+          "action": "SIT",
+          "arguments": [
+            "couch"
+          ],
+          "target": "couch"
+        },
+        {
+          "id": "event_3",
+          "action": "READ",
+          "arguments": [
+            "novel"
+          ],
+          "target": "novel"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "task-02-instance-02",
+    "task": "Turn off both ceiling lights and the floor lamp in the dining room.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_0",
+          "type": "node_attribute",
+          "node": "ceiling",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": false
+        },
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "floor_lamp",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": false
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_0",
+          "action": "SWITCHOFF",
+          "arguments": [
+            "ceiling"
+          ],
+          "target": "ceiling"
+        }
+      ],
+      "ordering_constraints": []
+    }
+  },
+  {
+    "id": "task-03-instance-01",
+    "task": "Use the remote control to turn on the television, then watch it.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_0",
+          "type": "node_attribute",
+          "node": "television",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WATCH",
+          "arguments": [
+            "television"
+          ],
+          "target": "television"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "goal_0",
+          "after": "event_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "task-05-instance-02",
+    "task": "Fill the drinking glass with water and drink from it.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "water",
+          "relation": "INSIDE",
+          "target": "drinking_glass",
+          "present": true
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "character",
+          "relation": "HOLDS_RH",
+          "target": "drinking_glass",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "POUR",
+          "arguments": [
+            "water",
+            "drinking_glass"
+          ],
+          "target": "water"
+        },
+        {
+          "id": "event_2",
+          "action": "DRINK",
+          "arguments": [
+            "drinking_glass"
+          ],
+          "target": "drinking_glass"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "task-08-instance-01",
+    "task": "Load the basket of clothes into the washing machine, close it, and start the machine.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "washing_machine",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": false
+        },
+        {
+          "id": "goal_2",
+          "type": "node_attribute",
+          "node": "washing_machine",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "PUTIN",
+          "arguments": [
+            "clothes_dress",
+            "washing_machine"
+          ],
+          "target": "clothes_dress"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "goal_1"
+        },
+        {
+          "before": "goal_1",
+          "after": "goal_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "task-09-instance-01",
+    "task": "Place the plate in the dishwasher, close it, and start the dishwasher.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "plate",
+          "relation": "INSIDE",
+          "target": "dishwasher",
+          "present": true
+        },
+        {
+          "id": "goal_2",
+          "type": "node_attribute",
+          "node": "dishwasher",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": false
+        },
+        {
+          "id": "goal_3",
+          "type": "node_attribute",
+          "node": "dishwasher",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "PUTIN",
+          "arguments": [
+            "plate",
+            "dishwasher"
+          ],
+          "target": "plate"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "goal_2"
+        },
+        {
+          "before": "goal_2",
+          "after": "goal_3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "task-10-instance-01",
+    "task": "Turn on the faucet and wash and rinse the plate by hand at the sink.",
+    "goals": {
+      "terminal_predicates": [],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "SWITCHON",
+          "arguments": [
+            "faucet"
+          ],
+          "target": "faucet"
+        },
+        {
+          "id": "event_2",
+          "action": "WASH",
+          "arguments": [
+            "plate"
+          ],
+          "target": "plate"
+        },
+        {
+          "id": "event_3",
+          "action": "RINSE",
+          "arguments": [
+            "plate"
+          ],
+          "target": "plate"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "task-13-instance-01",
+    "task": "Use the rag to wipe the bathroom faucet and sink, then return the rag to its original place.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_0",
+          "type": "edge",
+          "source": "rag",
+          "relation": "ON",
+          "target": "bathroom_counter",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_0",
+          "action": "WIPE",
+          "arguments": [
+            "faucet"
+          ],
+          "target": "faucet"
+        },
+        {
+          "id": "event_1",
+          "action": "WIPE",
+          "arguments": [
+            "sink"
+          ],
+          "target": "sink"
+        },
+        {
+          "id": "event_2",
+          "action": "PUTOBJBACK",
+          "arguments": [
+            "rag"
+          ],
+          "target": "rag"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_0",
+          "after": "event_1"
+        },
+        {
+          "before": "event_1",
+          "after": "event_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "task-14-instance-01",
+    "task": "Use the duster to wipe the filing cabinet, then return the duster to its original place.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "filing_cabinet",
+          "relation": "ON",
+          "target": "duster",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WIPE",
+          "arguments": [
+            "filing_cabinet"
+          ],
+          "target": "filing_cabinet"
+        },
+        {
+          "id": "event_2",
+          "action": "PUTOBJBACK",
+          "arguments": [
+            "duster"
+          ],
+          "target": "duster"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "task-15-instance-01",
+    "task": "Retrieve the pants and shirt from the dresser and put both on.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "clothes_pants",
+          "relation": "ON",
+          "target": "character",
+          "present": true
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "clothes_shirt",
+          "relation": "ON",
+          "target": "character",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "GRAB",
+          "arguments": [
+            "clothes_pants"
+          ],
+          "target": "clothes_pants"
+        },
+        {
+          "id": "event_2",
+          "action": "GRAB",
+          "arguments": [
+            "clothes_shirt"
+          ],
+          "target": "clothes_shirt"
+        },
+        {
+          "id": "event_3",
+          "action": "PUTON",
+          "arguments": [
+            "clothes_pants"
+          ],
+          "target": "clothes_pants"
+        },
+        {
+          "id": "event_4",
+          "action": "PUTON",
+          "arguments": [
+            "clothes_shirt"
+          ],
+          "target": "clothes_shirt"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "task-17-instance-01",
+    "task": "Pick up the jacket and hang it on the wall hanger.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "clothes_jacket",
+          "relation": "ON",
+          "target": "wall",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "GRAB",
+          "arguments": [
+            "clothes_jacket"
+          ],
+          "target": "clothes_jacket"
+        },
+        {
+          "id": "event_2",
+          "action": "PUTOBJBACK",
+          "arguments": [
+            "clothes_jacket"
+          ],
+          "target": "clothes_jacket"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "long-read-s1-magazine",
+    "task": "Go to the home office, take the newspaper from the desk chair, carry it to the couch, sit down, and read that same newspaper.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "character",
+          "attribute": "posture",
+          "operator": "equals",
+          "value": "sitting"
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "newspaper",
+          "relation": "HOLDS_RH",
+          "target": "character",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "GRAB",
+          "arguments": [
+            "newspaper"
+          ],
+          "target": "newspaper"
+        },
+        {
+          "id": "event_2",
+          "action": "SIT",
+          "arguments": [
+            "couch"
+          ],
+          "target": "couch"
+        },
+        {
+          "id": "event_3",
+          "action": "READ",
+          "arguments": [
+            "newspaper"
+          ],
+          "target": "newspaper"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "long-browse-internet-s1-keyboard",
+    "task": "Go to the home office, sit in the desk chair, switch on the computer, and use the keyboard to browse the internet.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "computer",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        },
+        {
+          "id": "goal_2",
+          "type": "node_attribute",
+          "node": "character",
+          "attribute": "posture",
+          "operator": "equals",
+          "value": "sitting"
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WALK",
+          "arguments": [
+            "home_office"
+          ],
+          "target": "home_office"
+        },
+        {
+          "id": "event_2",
+          "action": "SIT",
+          "arguments": [
+            "chair"
+          ],
+          "target": "chair"
+        },
+        {
+          "id": "event_4",
+          "action": "TYPE",
+          "arguments": [
+            "keyboard"
+          ],
+          "target": "keyboard"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "goal_1"
+        },
+        {
+          "before": "goal_1",
+          "after": "event_4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "screen-look-in-refrigerator-s1-split53_1",
+    "task": "In the dining room, open and inspect the refrigerator. Then locate the separate kitchen cabinet, open it and check it for food. Close the cabinet, then close the refrigerator.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "fridge",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": false
+        },
+        {
+          "id": "goal_2",
+          "type": "node_attribute",
+          "node": "kitchen_cabinet",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": false
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "OPEN",
+          "arguments": [
+            "fridge"
+          ],
+          "target": "fridge"
+        },
+        {
+          "id": "event_2",
+          "action": "LOOKAT",
+          "arguments": [
+            "fridge"
+          ],
+          "target": "fridge"
+        },
+        {
+          "id": "event_3",
+          "action": "FIND",
+          "arguments": [
+            "kitchen_cabinet"
+          ],
+          "target": "kitchen_cabinet"
+        },
+        {
+          "id": "event_4",
+          "action": "OPEN",
+          "arguments": [
+            "kitchen_cabinet"
+          ],
+          "target": "kitchen_cabinet"
+        },
+        {
+          "id": "event_5",
+          "action": "LOOKAT",
+          "arguments": [
+            "kitchen_cabinet"
+          ],
+          "target": "kitchen_cabinet"
+        },
+        {
+          "id": "event_7",
+          "action": "CLOSE",
+          "arguments": [
+            "fridge"
+          ],
+          "target": "fridge"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        },
+        {
+          "before": "event_4",
+          "after": "event_5"
+        },
+        {
+          "before": "event_5",
+          "after": "goal_2"
+        },
+        {
+          "before": "goal_2",
+          "after": "event_7"
+        }
+      ]
+    }
+  },
+  {
+    "id": "screen-put-groceries-in-fridge-s2-file256_2",
+    "task": "Stand up, go to the dining room, pick up the groceries, open the refrigerator, and place the groceries inside; this sequence ends with the refrigerator still open.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "groceries",
+          "relation": "INSIDE",
+          "target": "fridge",
+          "present": true
+        },
+        {
+          "id": "goal_2",
+          "type": "node_attribute",
+          "node": "fridge",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "STANDUP",
+          "arguments": [],
+          "target": null
+        },
+        {
+          "id": "event_2",
+          "action": "WALK",
+          "arguments": [
+            "dining_room"
+          ],
+          "target": "dining_room"
+        },
+        {
+          "id": "event_3",
+          "action": "GRAB",
+          "arguments": [
+            "groceries"
+          ],
+          "target": "groceries"
+        },
+        {
+          "id": "event_4",
+          "action": "OPEN",
+          "arguments": [
+            "fridge"
+          ],
+          "target": "fridge"
+        },
+        {
+          "id": "event_5",
+          "action": "PUTIN",
+          "arguments": [
+            "groceries",
+            "fridge"
+          ],
+          "target": "groceries"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        },
+        {
+          "before": "event_4",
+          "after": "event_5"
+        }
+      ]
+    }
+  },
+  {
+    "id": "screen-write-an-email-s1-file986_2",
+    "task": "Go to the home office, sit on the chair at the computer, switch it on, type the email with the keyboard, and then switch the computer off while remaining seated.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "computer",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": false
+        },
+        {
+          "id": "goal_2",
+          "type": "node_attribute",
+          "node": "character",
+          "attribute": "posture",
+          "operator": "equals",
+          "value": "sitting"
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WALK",
+          "arguments": [
+            "home_office"
+          ],
+          "target": "home_office"
+        },
+        {
+          "id": "event_2",
+          "action": "SIT",
+          "arguments": [
+            "chair"
+          ],
+          "target": "chair"
+        },
+        {
+          "id": "event_3",
+          "action": "SWITCHON",
+          "arguments": [
+            "computer"
+          ],
+          "target": "computer"
+        },
+        {
+          "id": "event_4",
+          "action": "TYPE",
+          "arguments": [
+            "keyboard"
+          ],
+          "target": "keyboard"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        },
+        {
+          "before": "event_4",
+          "after": "goal_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "screen-do-work-on-computer-s1-split119_3",
+    "task": "Go to the home office, sit at the desk, switch on the computer, type on the keyboard, switch the computer off, and then stand up; do not leave the office.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "character",
+          "attribute": "posture",
+          "operator": "equals",
+          "value": "standing"
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WALK",
+          "arguments": [
+            "home_office"
+          ],
+          "target": "home_office"
+        },
+        {
+          "id": "event_2",
+          "action": "SIT",
+          "arguments": [
+            "chair"
+          ],
+          "target": "chair"
+        },
+        {
+          "id": "event_3",
+          "action": "SWITCHON",
+          "arguments": [
+            "computer"
+          ],
+          "target": "computer"
+        },
+        {
+          "id": "event_4",
+          "action": "TYPE",
+          "arguments": [
+            "keyboard"
+          ],
+          "target": "keyboard"
+        },
+        {
+          "id": "event_5",
+          "action": "SWITCHOFF",
+          "arguments": [
+            "computer"
+          ],
+          "target": "computer"
+        },
+        {
+          "id": "event_6",
+          "action": "STANDUP",
+          "arguments": [],
+          "target": null
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        },
+        {
+          "before": "event_4",
+          "after": "event_5"
+        },
+        {
+          "before": "event_5",
+          "after": "event_6"
+        }
+      ]
+    }
+  },
+  {
+    "id": "screen-write-an-email-s2-file327_1",
+    "task": "Go to the home office, turn on the office light first, sit at the desk, switch on the computer, and type the email with the keyboard.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "light",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        },
+        {
+          "id": "goal_2",
+          "type": "node_attribute",
+          "node": "computer",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_2",
+          "action": "SIT",
+          "arguments": [
+            "chair"
+          ],
+          "target": "chair"
+        },
+        {
+          "id": "event_4",
+          "action": "TYPE",
+          "arguments": [
+            "keyboard"
+          ],
+          "target": "keyboard"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "goal_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "goal_2"
+        },
+        {
+          "before": "goal_2",
+          "after": "event_4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "screen-computer-work-s1-split84_1",
+    "task": "Go to the home office and sit at the desk, switch on the computer, pick up the mouse and point at the screen, return the mouse, and then type on the keyboard.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "computer",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "character",
+          "relation": "HOLDS_RH",
+          "target": "mouse",
+          "present": true
+        },
+        {
+          "id": "goal_3",
+          "type": "edge",
+          "source": "character",
+          "relation": "HOLDS_LH",
+          "target": "mouse",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WALK",
+          "arguments": [
+            "home_office"
+          ],
+          "target": "home_office"
+        },
+        {
+          "id": "event_2",
+          "action": "SIT",
+          "arguments": [
+            "desk"
+          ],
+          "target": "desk"
+        },
+        {
+          "id": "event_4",
+          "action": "GRAB",
+          "arguments": [
+            "mouse"
+          ],
+          "target": "mouse"
+        },
+        {
+          "id": "event_5",
+          "action": "POINTAT",
+          "arguments": [
+            "computer"
+          ],
+          "target": "computer"
+        },
+        {
+          "id": "event_6",
+          "action": "PUTOBJBACK",
+          "arguments": [
+            "mouse"
+          ],
+          "target": "mouse"
+        },
+        {
+          "id": "event_7",
+          "action": "TYPE",
+          "arguments": [
+            "keyboard"
+          ],
+          "target": "keyboard"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "goal_1"
+        },
+        {
+          "before": "goal_1",
+          "after": "event_4"
+        },
+        {
+          "before": "event_4",
+          "after": "event_5"
+        },
+        {
+          "before": "event_5",
+          "after": "event_6"
+        },
+        {
+          "before": "event_6",
+          "after": "event_7"
+        }
+      ]
+    }
+  },
+  {
+    "id": "screen-call-family-member-with-skype-application-s1-split5_3",
+    "task": "Go to the home office, sit in the desk chair, switch on the computer, use the keyboard to access Skype, then pick up the mouse and press the call control on the computer.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "computer",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        },
+        {
+          "id": "goal_2",
+          "type": "node_attribute",
+          "node": "character",
+          "attribute": "posture",
+          "operator": "equals",
+          "value": "sitting"
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WALK",
+          "arguments": [
+            "home_office"
+          ],
+          "target": "home_office"
+        },
+        {
+          "id": "event_2",
+          "action": "SIT",
+          "arguments": [
+            "chair"
+          ],
+          "target": "chair"
+        },
+        {
+          "id": "event_4",
+          "action": "TYPE",
+          "arguments": [
+            "keyboard"
+          ],
+          "target": "keyboard"
+        },
+        {
+          "id": "event_5",
+          "action": "GRAB",
+          "arguments": [
+            "mouse"
+          ],
+          "target": "mouse"
+        },
+        {
+          "id": "event_6",
+          "action": "PUSH",
+          "arguments": [
+            "computer"
+          ],
+          "target": "computer"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "goal_1"
+        },
+        {
+          "before": "goal_1",
+          "after": "event_4"
+        },
+        {
+          "before": "event_4",
+          "after": "event_5"
+        },
+        {
+          "before": "event_5",
+          "after": "event_6"
+        }
+      ]
+    }
+  },
+  {
+    "id": "screen-drink-s2-split6_10",
+    "task": "Open the refrigerator in the dining room, take the beer bottle, close the refrigerator, carry that same bottle to the home-office couch, sit down, and drink it.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "fridge",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": false
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "character",
+          "relation": "ON",
+          "target": "couch",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "OPEN",
+          "arguments": [
+            "fridge"
+          ],
+          "target": "fridge"
+        },
+        {
+          "id": "event_2",
+          "action": "GRAB",
+          "arguments": [
+            "beer"
+          ],
+          "target": "beer"
+        },
+        {
+          "id": "event_3",
+          "action": "CLOSE",
+          "arguments": [
+            "fridge"
+          ],
+          "target": "fridge"
+        },
+        {
+          "id": "event_4",
+          "action": "PUTOBJBACK",
+          "arguments": [
+            "beer"
+          ],
+          "target": "beer"
+        },
+        {
+          "id": "event_5",
+          "action": "SIT",
+          "arguments": [
+            "couch"
+          ],
+          "target": "couch"
+        },
+        {
+          "id": "event_6",
+          "action": "DRINK",
+          "arguments": [
+            "beer"
+          ],
+          "target": "beer"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        },
+        {
+          "before": "event_4",
+          "after": "event_5"
+        },
+        {
+          "before": "event_5",
+          "after": "event_6"
+        }
+      ]
+    }
+  },
+  {
+    "id": "computer_work-01",
+    "task": "Sit at the home-office computer, turn it on, open the email, type the message, then close the email and turn the computer off.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "computer",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": false
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "SIT",
+          "arguments": [
+            "chair"
+          ],
+          "target": "chair"
+        },
+        {
+          "id": "event_2",
+          "action": "SWITCHON",
+          "arguments": [
+            "computer"
+          ],
+          "target": "computer"
+        },
+        {
+          "id": "event_3",
+          "action": "TYPE",
+          "arguments": [
+            "keyboard"
+          ],
+          "target": "keyboard"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "goal_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "computer_work-05",
+    "task": "Sit at the home-office computer, turn it on, read the check, leave the check on the desk, and type on the keyboard.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "computer",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "check",
+          "relation": "ON",
+          "target": "desk",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "SIT",
+          "arguments": [
+            "chair"
+          ],
+          "target": "chair"
+        },
+        {
+          "id": "event_3",
+          "action": "READ",
+          "arguments": [
+            "check"
+          ],
+          "target": "check"
+        },
+        {
+          "id": "event_4",
+          "action": "PUTOFF",
+          "arguments": [
+            "check"
+          ],
+          "target": "check"
+        },
+        {
+          "id": "event_5",
+          "action": "TYPE",
+          "arguments": [
+            "keyboard"
+          ],
+          "target": "keyboard"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "goal_1"
+        },
+        {
+          "before": "goal_1",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        },
+        {
+          "before": "event_4",
+          "after": "event_5"
+        }
+      ]
+    }
+  },
+  {
+    "id": "expanded-get-glass-of-milk-s1-split13_1",
+    "task": "Pick up an empty cup, take the milk from the freezer, pour some into the cup, and return the milk to the freezer. Leave the freezer closed.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "freezer",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": false
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "GRAB",
+          "arguments": [
+            "cup"
+          ],
+          "target": "cup"
+        },
+        {
+          "id": "event_2",
+          "action": "OPEN",
+          "arguments": [
+            "freezer"
+          ],
+          "target": "freezer"
+        },
+        {
+          "id": "event_3",
+          "action": "GRAB",
+          "arguments": [
+            "milk"
+          ],
+          "target": "milk"
+        },
+        {
+          "id": "event_4",
+          "action": "POUR",
+          "arguments": [
+            "milk",
+            "cup"
+          ],
+          "target": "milk"
+        },
+        {
+          "id": "event_5",
+          "action": "PUTIN",
+          "arguments": [
+            "milk",
+            "freezer"
+          ],
+          "target": "milk"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        },
+        {
+          "before": "event_4",
+          "after": "event_5"
+        },
+        {
+          "before": "event_5",
+          "after": "goal_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "expanded-hand-washing-s2-split4_7",
+    "task": "Wash your hands with soap and running water, turn off the faucet, and dry your hands with a towel.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "faucet",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": false
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "hands_both",
+          "relation": "HOLDS_RH",
+          "target": "towel",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WASH",
+          "arguments": [
+            "hands_both"
+          ],
+          "target": "hands_both"
+        },
+        {
+          "id": "event_3",
+          "action": "WIPE",
+          "arguments": [
+            "hands_both"
+          ],
+          "target": "hands_both"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "goal_1"
+        },
+        {
+          "before": "goal_1",
+          "after": "event_3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "expanded-make-toast-s1-split14_6",
+    "task": "Place bread from the freezer in the toaster and switch it on, with the toaster plugged in and the freezer left closed.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "food_bread",
+          "relation": "INSIDE",
+          "target": "toaster",
+          "present": true
+        },
+        {
+          "id": "goal_2",
+          "type": "node_attribute",
+          "node": "toaster",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        },
+        {
+          "id": "goal_3",
+          "type": "node_attribute",
+          "node": "freezer",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": false
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "FIND",
+          "arguments": [
+            "food_bread"
+          ],
+          "target": "food_bread"
+        },
+        {
+          "id": "event_2",
+          "action": "OPEN",
+          "arguments": [
+            "freezer"
+          ],
+          "target": "freezer"
+        },
+        {
+          "id": "event_3",
+          "action": "GRAB",
+          "arguments": [
+            "food_bread"
+          ],
+          "target": "food_bread"
+        },
+        {
+          "id": "event_4",
+          "action": "PUTIN",
+          "arguments": [
+            "food_bread",
+            "toaster"
+          ],
+          "target": "food_bread"
+        },
+        {
+          "id": "event_6",
+          "action": "PLUGIN",
+          "arguments": [
+            "toaster"
+          ],
+          "target": "toaster"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        },
+        {
+          "before": "event_4",
+          "after": "goal_3"
+        },
+        {
+          "before": "goal_3",
+          "after": "event_6"
+        },
+        {
+          "before": "event_6",
+          "after": "goal_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "expanded-shred-receipts-s1-split19_4",
+    "task": "Put the paper document from the filing cabinet into the powered-on shredder, and leave the filing cabinet closed.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_0",
+          "type": "edge",
+          "source": "paper",
+          "relation": "INSIDE",
+          "target": "shredder",
+          "present": true
+        },
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "filing_cabinet",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": false
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_0",
+          "action": "SWITCHON",
+          "arguments": [
+            "shredder"
+          ],
+          "target": "shredder"
+        },
+        {
+          "id": "event_1",
+          "action": "GRAB",
+          "arguments": [
+            "paper"
+          ],
+          "target": "paper"
+        },
+        {
+          "id": "event_2",
+          "action": "PUTIN",
+          "arguments": [
+            "paper",
+            "shredder"
+          ],
+          "target": "paper"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_0",
+          "after": "event_1"
+        },
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "goal_1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "expanded-store-perishables-s2-file516_1-table-start-v1",
+    "task": "Store the apple, egg, and fish from the dining table in the freezer, and leave the freezer closed when finished.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "food_apple",
+          "relation": "INSIDE",
+          "target": "freezer",
+          "present": true
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "food_egg",
+          "relation": "INSIDE",
+          "target": "freezer",
+          "present": true
+        },
+        {
+          "id": "goal_3",
+          "type": "edge",
+          "source": "food_fish",
+          "relation": "INSIDE",
+          "target": "freezer",
+          "present": true
+        },
+        {
+          "id": "goal_4",
+          "type": "node_attribute",
+          "node": "freezer",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": false
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "PUTIN",
+          "arguments": [
+            "food_apple",
+            "freezer"
+          ],
+          "target": "food_apple"
+        },
+        {
+          "id": "event_2",
+          "action": "PUTIN",
+          "arguments": [
+            "food_egg",
+            "freezer"
+          ],
+          "target": "food_egg"
+        },
+        {
+          "id": "event_3",
+          "action": "PUTIN",
+          "arguments": [
+            "food_fish",
+            "freezer"
+          ],
+          "target": "food_fish"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "goal_4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "set_table-02",
+    "task": "Retrieve the fork and plate from the kitchen cabinet and place both on the dining table.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "fork",
+          "relation": "ON",
+          "target": "table",
+          "present": true
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "plate",
+          "relation": "ON",
+          "target": "table",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "OPEN",
+          "arguments": [
+            "kitchen_cabinet"
+          ],
+          "target": "kitchen_cabinet"
+        },
+        {
+          "id": "event_2",
+          "action": "GRAB",
+          "arguments": [
+            "fork"
+          ],
+          "target": "fork"
+        },
+        {
+          "id": "event_3",
+          "action": "GRAB",
+          "arguments": [
+            "plate"
+          ],
+          "target": "plate"
+        },
+        {
+          "id": "event_4",
+          "action": "PUTON",
+          "arguments": [
+            "fork"
+          ],
+          "target": "fork"
+        },
+        {
+          "id": "event_5",
+          "action": "PUTON",
+          "arguments": [
+            "plate"
+          ],
+          "target": "plate"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        },
+        {
+          "before": "event_4",
+          "after": "event_5"
+        }
+      ]
+    }
+  },
+  {
+    "id": "task-03-instance-02",
+    "task": "Sit on the chair, pick up the remote control, point it at the television to turn the TV on, then return the remote.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "television",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "SIT",
+          "arguments": [
+            "chair"
+          ],
+          "target": "chair"
+        },
+        {
+          "id": "event_2",
+          "action": "GRAB",
+          "arguments": [
+            "remote_control"
+          ],
+          "target": "remote_control"
+        },
+        {
+          "id": "event_3",
+          "action": "POINTAT",
+          "arguments": [
+            "television"
+          ],
+          "target": "television"
+        },
+        {
+          "id": "event_5",
+          "action": "PUTOBJBACK",
+          "arguments": [
+            "remote_control"
+          ],
+          "target": "remote_control"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "goal_1"
+        },
+        {
+          "before": "goal_1",
+          "after": "event_5"
+        }
+      ]
+    }
+  },
+  {
+    "id": "task-06-instance-01",
+    "task": "Put the food on a plate, place the plate on the dining table, sit on the chair, and eat the meal.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "food_food",
+          "relation": "ON",
+          "target": "plate",
+          "present": true
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "plate",
+          "relation": "ON",
+          "target": "table",
+          "present": true
+        },
+        {
+          "id": "goal_3",
+          "type": "node_attribute",
+          "node": "character",
+          "attribute": "posture",
+          "operator": "equals",
+          "value": "sitting"
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "GRAB",
+          "arguments": [
+            "food_food"
+          ],
+          "target": "food_food"
+        },
+        {
+          "id": "event_2",
+          "action": "PUTOBJBACK",
+          "arguments": [
+            "food_food"
+          ],
+          "target": "food_food"
+        },
+        {
+          "id": "event_3",
+          "action": "SIT",
+          "arguments": [
+            "chair"
+          ],
+          "target": "chair"
+        },
+        {
+          "id": "event_4",
+          "action": "EAT",
+          "arguments": [
+            "plate"
+          ],
+          "target": "plate"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "task-12-instance-01",
+    "task": "Use a paper towel from the bathroom cabinet to wipe the mirror, dispose of the towel in the trashcan, and leave the cabinet closed.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "mirror",
+          "relation": "ON",
+          "target": "wall",
+          "present": true
+        },
+        {
+          "id": "goal_2",
+          "type": "node_attribute",
+          "node": "bathroom_cabinet",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": false
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WIPE",
+          "arguments": [
+            "mirror"
+          ],
+          "target": "mirror"
+        },
+        {
+          "id": "event_2",
+          "action": "DROP",
+          "arguments": [
+            "paper_towel"
+          ],
+          "target": "paper_towel"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "task-14-instance-02",
+    "task": "Use the duster to wipe the chair, table, and dresser, then return the duster to its original place.",
+    "goals": {
+      "terminal_predicates": [],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "WIPE",
+          "arguments": [
+            "chair"
+          ],
+          "target": "chair"
+        },
+        {
+          "id": "event_2",
+          "action": "WIPE",
+          "arguments": [
+            "table"
+          ],
+          "target": "table"
+        },
+        {
+          "id": "event_3",
+          "action": "WIPE",
+          "arguments": [
+            "dresser"
+          ],
+          "target": "dresser"
+        },
+        {
+          "id": "event_4",
+          "action": "PUTOBJBACK",
+          "arguments": [
+            "duster"
+          ],
+          "target": "duster"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "screen-brush-teeth-s4-split7_2",
+    "task": "Use a toothbrush and toothpaste in the bathroom to brush your teeth, then rinse your mouth and the toothbrush at the running faucet, turn the faucet off, and put the toothbrush back.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "toothbrush",
+          "relation": "ON",
+          "target": "toothbrush_holder",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "FIND",
+          "arguments": [
+            "toothbrush"
+          ],
+          "target": "toothbrush"
+        },
+        {
+          "id": "event_2",
+          "action": "FIND",
+          "arguments": [
+            "tooth_paste"
+          ],
+          "target": "tooth_paste"
+        },
+        {
+          "id": "event_3",
+          "action": "GRAB",
+          "arguments": [
+            "toothbrush"
+          ],
+          "target": "toothbrush"
+        },
+        {
+          "id": "event_4",
+          "action": "GRAB",
+          "arguments": [
+            "tooth_paste"
+          ],
+          "target": "tooth_paste"
+        },
+        {
+          "id": "event_5",
+          "action": "POUR",
+          "arguments": [
+            "tooth_paste",
+            "toothbrush"
+          ],
+          "target": "tooth_paste"
+        },
+        {
+          "id": "event_6",
+          "action": "SCRUB",
+          "arguments": [
+            "teeth"
+          ],
+          "target": "teeth"
+        },
+        {
+          "id": "event_7",
+          "action": "RINSE",
+          "arguments": [
+            "face"
+          ],
+          "target": "face"
+        },
+        {
+          "id": "event_8",
+          "action": "RINSE",
+          "arguments": [
+            "toothbrush"
+          ],
+          "target": "toothbrush"
+        },
+        {
+          "id": "event_9",
+          "action": "PUSH",
+          "arguments": [
+            "faucet"
+          ],
+          "target": "faucet"
+        },
+        {
+          "id": "event_10",
+          "action": "PUTOBJBACK",
+          "arguments": [
+            "toothbrush"
+          ],
+          "target": "toothbrush"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_3"
+        },
+        {
+          "before": "event_2",
+          "after": "event_4"
+        },
+        {
+          "before": "event_3",
+          "after": "event_5"
+        },
+        {
+          "before": "event_4",
+          "after": "event_5"
+        },
+        {
+          "before": "event_5",
+          "after": "event_6"
+        },
+        {
+          "before": "event_6",
+          "after": "event_7"
+        },
+        {
+          "before": "event_7",
+          "after": "event_8"
+        },
+        {
+          "before": "event_8",
+          "after": "event_9"
+        },
+        {
+          "before": "event_9",
+          "after": "event_10"
+        }
+      ]
+    }
+  },
+  {
+    "id": "screen-get-dressed-s2-split113_1",
+    "task": "Take three dresses from the bedroom dresser, lay each one on the bed, and leave the dresser closed when finished.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "edge",
+          "source": "clothes_dress",
+          "relation": "ON",
+          "target": "bed",
+          "present": true
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "clothes_dress",
+          "relation": "ON",
+          "target": "bed",
+          "present": true
+        },
+        {
+          "id": "goal_3",
+          "type": "edge",
+          "source": "clothes_dress",
+          "relation": "ON",
+          "target": "bed",
+          "present": true
+        },
+        {
+          "id": "goal_4",
+          "type": "node_attribute",
+          "node": "dresser",
+          "attribute": "is_open",
+          "operator": "equals",
+          "value": false
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "FIND",
+          "arguments": [
+            "clothes_dress"
+          ],
+          "target": "clothes_dress"
+        },
+        {
+          "id": "event_2",
+          "action": "GRAB",
+          "arguments": [
+            "clothes_dress"
+          ],
+          "target": "clothes_dress"
+        },
+        {
+          "id": "event_3",
+          "action": "LIE",
+          "arguments": [
+            "clothes_dress"
+          ],
+          "target": "clothes_dress"
+        },
+        {
+          "id": "event_4",
+          "action": "FIND",
+          "arguments": [
+            "clothes_dress"
+          ],
+          "target": "clothes_dress"
+        },
+        {
+          "id": "event_5",
+          "action": "GRAB",
+          "arguments": [
+            "clothes_dress"
+          ],
+          "target": "clothes_dress"
+        },
+        {
+          "id": "event_6",
+          "action": "LIE",
+          "arguments": [
+            "clothes_dress"
+          ],
+          "target": "clothes_dress"
+        },
+        {
+          "id": "event_7",
+          "action": "FIND",
+          "arguments": [
+            "clothes_dress"
+          ],
+          "target": "clothes_dress"
+        },
+        {
+          "id": "event_8",
+          "action": "GRAB",
+          "arguments": [
+            "clothes_dress"
+          ],
+          "target": "clothes_dress"
+        },
+        {
+          "id": "event_9",
+          "action": "LIE",
+          "arguments": [
+            "clothes_dress"
+          ],
+          "target": "clothes_dress"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        },
+        {
+          "before": "event_4",
+          "after": "event_5"
+        },
+        {
+          "before": "event_5",
+          "after": "event_6"
+        },
+        {
+          "before": "event_6",
+          "after": "event_7"
+        },
+        {
+          "before": "event_7",
+          "after": "event_8"
+        },
+        {
+          "before": "event_8",
+          "after": "event_9"
+        },
+        {
+          "before": "event_9",
+          "after": "goal_4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "screen-wash-face-s1-split96_2",
+    "task": "At the bathroom sink, turn on the faucet, wash your face with cleanser and a rinsed rag, turn the faucet off, dry your face with a towel, and return the towel.",
+    "goals": {
+      "terminal_predicates": [
+        {
+          "id": "goal_1",
+          "type": "node_attribute",
+          "node": "faucet",
+          "attribute": "is_on",
+          "operator": "equals",
+          "value": false
+        },
+        {
+          "id": "goal_2",
+          "type": "edge",
+          "source": "towel",
+          "relation": "ON",
+          "target": "towel_rack",
+          "present": true
+        }
+      ],
+      "required_events": [
+        {
+          "id": "event_1",
+          "action": "SWITCHON",
+          "arguments": [
+            "faucet"
+          ],
+          "target": "faucet"
+        },
+        {
+          "id": "event_2",
+          "action": "WASH",
+          "arguments": [
+            "face"
+          ],
+          "target": "face"
+        },
+        {
+          "id": "event_3",
+          "action": "RINSE",
+          "arguments": [
+            "face"
+          ],
+          "target": "face"
+        },
+        {
+          "id": "event_4",
+          "action": "WIPE",
+          "arguments": [
+            "face"
+          ],
+          "target": "face"
+        },
+        {
+          "id": "event_6",
+          "action": "PUTOBJBACK",
+          "arguments": [
+            "towel"
+          ],
+          "target": "towel"
+        }
+      ],
+      "ordering_constraints": [
+        {
+          "before": "event_1",
+          "after": "event_2"
+        },
+        {
+          "before": "event_2",
+          "after": "event_3"
+        },
+        {
+          "before": "event_3",
+          "after": "event_4"
+        },
+        {
+          "before": "event_4",
+          "after": "goal_1"
+        },
+        {
+          "before": "goal_1",
+          "after": "event_6"
+        }
+      ]
+    }
+  }
+]

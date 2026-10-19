@@ -1,0 +1,23 @@
+[
+  {
+    "id": "open_fridge",
+    "task": "Put the apple inside the fridge.",
+    "pre_obs": "The robot is close to the fridge. The fridge is closed. An apple is on a table. A lamp is switched on. Whether the fridge is clean is unknown.",
+    "action": {
+      "name": "OPEN",
+      "actor": {
+        "type": "robot"
+      },
+      "arguments": [
+        {
+          "role": "target",
+          "node": {
+            "type": "fridge"
+          }
+        }
+      ]
+    },
+    "post_obs": "The robot is still close to the fridge. The fridge is now open. The apple is still on the table. The lamp is still switched on. Whether the fridge is clean remains unknown.",
+    "outcome": "success"
+  }
+]
