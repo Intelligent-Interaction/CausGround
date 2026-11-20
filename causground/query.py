@@ -13,12 +13,13 @@ from .semantic import EmbeddingRetriever, LexicalRetriever, Qwen3Encoder
 def main(argv=None):
     p = argparse.ArgumentParser(description="Retrieve one task's causal/semantic/hybrid CausGround context.")
     source = p.add_mutually_exclusive_group(required=True)
-    source.add_argument("--env", choices=("virtualhome", "robocasa"), help="Use a bundled environment graph")
+    source.add_argument("--env", choices=("virtualhome", "robocasa", "switch"), help="Use a bundled environment graph")
     source.add_argument("--graph", type=Path, help="Use your own CausGround graph")
     p.add_argument("--vocabulary", type=Path)
     p.add_argument("--task", required=True)
+    p.add_argument("--version", choices=("simple", "complex"), help="SWITCH context version (default: simple)")
     p.add_argument("--goals", type=Path, help="Goal specification JSON; bypasses text goal parsing")
-    p.add_argument("--profile", default="auto", choices=("auto","standard","robocasa","virtualhome_legacy"))
+    p.add_argument("--profile", default="auto", choices=("auto","standard","robocasa","virtualhome_legacy","switch"))
     p.add_argument("--output-format", default="common", choices=("common","virtualhome-legacy"))
     p.add_argument("--initial-state", type=Path, help="Legacy explicit predicate list JSON")
     p.add_argument("--state", type=Path, help="Optional standard world state JSON")
@@ -30,7 +31,7 @@ def main(argv=None):
     p.add_argument("--goal-backend", choices=("grammar", "dashscope", "vllm"), default="grammar")
     p.add_argument("--model", help="LLM model name; grammar needs no model")
     p.add_argument("--model-path", type=Path, help="Existing local vLLM LLM directory")
-    p.add_argument("--top-k", type=int, default=5)
+    p.add_argument("--top-k", type=int, default=None, help="Seed count: SWITCH 4, other domains 5")
     p.add_argument("--max-nodes", type=int, default=32)
     p.add_argument("--max-depth", type=int, default=6)
     p.add_argument("--max-producers", type=int, default=2)
@@ -45,6 +46,8 @@ def main(argv=None):
             if args.env == "virtualhome" and args.vocabulary is None:
                 args.vocabulary = data / "vocabulary.json"
         graph = CausGround.load(args.graph, vocabulary=args.vocabulary, profile=args.profile)
+        if graph.profile == 'switch' and (args.goal_backend != 'grammar' or args.retriever != 'lexical' or args.output_format != 'common'):
+            raise ValueError('SWITCH uses task-only lexical retrieval and optional typed goals; output format is common')
         parser = None
         if args.goal_backend != "grammar" and args.mode != "semantic" and args.goals is None:
             from .models import make_model
@@ -54,7 +57,7 @@ def main(argv=None):
                 parser=LegacyVirtualHomeGoalParser(model,graph.graph)
             else:parser=LLMGoalParser(model)
         ranker = None
-        if args.mode != "causal":
+        if args.mode != "causal" and graph.profile != 'switch':
             if args.retriever == "embedding":
                 encoder = Qwen3Encoder(args.embedding_model, device=args.device or "cpu") if args.embedding_backend == "qwen3-transformers" else None
                 ranker = EmbeddingRetriever(args.embedding_model, device=args.device, encoder=encoder)
@@ -62,7 +65,7 @@ def main(argv=None):
         result = graph.retrieve(args.task, goals=read_json(args.goals) if args.goals else None,
             state=read_json(args.state) if args.state else None, initial_state=read_json(args.initial_state) if args.initial_state else None, mode=args.mode,
             goal_parser=parser, retriever=ranker, top_k=args.top_k, max_nodes=args.max_nodes,
-            max_depth=args.max_depth, max_producers=args.max_producers)
+            max_depth=args.max_depth, max_producers=args.max_producers, version=args.version)
         output_graph=result.subgraph
         if args.output_format=='virtualhome-legacy':
             from .adapters.virtualhome import to_legacy_subgraph

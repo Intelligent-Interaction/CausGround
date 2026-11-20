@@ -141,6 +141,13 @@ class RetrievalResult:
 
 class CausGround:
     def __init__(self, graph, *, vocabulary=None, profile='auto'):
+        if graph.get('schema_version') == 'switch-cwm-library-v1':
+            from .switch import SwitchCWM
+            if profile not in {'auto', 'switch'} or vocabulary is not None:
+                raise ValueError('SWITCH uses its own source vocabulary and profile')
+            self._switch = SwitchCWM(graph)
+            self.profile, self.domain = 'switch', 'SWITCH'
+            return
         if graph.get('schema_version')=='virtualhome-legacy-catalog-v1':
             from .adapters.virtualhome import catalog_to_graph
             graph=catalog_to_graph(graph)
@@ -158,7 +165,17 @@ class CausGround:
         return cls(read_json(path), vocabulary=vocabulary, profile=profile)
 
     def retrieve(self, task, *, goals=None, mode="hybrid", state=None, initial_state=None, goal_parser=None,
-                 retriever=None, top_k=5, max_nodes=32, max_depth=6, max_producers=2):
+                 retriever=None, top_k=None, max_nodes=32, max_depth=6, max_producers=2, version=None):
+        if hasattr(self, '_switch'):
+            if mode != 'hybrid' or any(v is not None for v in (state, initial_state, goal_parser, retriever)):
+                raise ValueError('SWITCH uses task-only repaired retrieval; use SwitchCWM for its specific options')
+            if (max_nodes, max_depth, max_producers) != (32, 6, 2):
+                raise ValueError('SWITCH uses a strict-text action budget, not standard causal graph bounds')
+            result = self._switch.retrieve(task, version=version, goals=goals, top_k=4 if top_k is None else top_k)
+            return RetrievalResult(subgraph=result.subgraph, context=result.context)
+        if version is not None:
+            raise ValueError('version is only supported for SWITCH')
+        top_k = 5 if top_k is None else top_k
         if not isinstance(task, str) or not task.strip(): raise ValueError("task must be nonempty text")
         facts=validate_initial_facts(initial_state)
         if mode not in {"causal", "semantic", "hybrid"}: raise ValueError("mode must be causal, semantic or hybrid")

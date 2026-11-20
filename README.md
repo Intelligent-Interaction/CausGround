@@ -141,6 +141,26 @@ python scripts/reproduce.py --output outputs/tasks
 
 Generates task subgraphs from the supplied inputs and goals. Use a new output directory for each run.
 
+### Get SWITCH task context
+
+```bash
+python -m causground query --env switch --version complex \
+  --task "Turn on the kettle." --output outputs/switch-task
+```
+
+Use `complex` for higher accuracy on average and `simple` (default) for more readable context.
+
+Use `context.txt` in your model's user message. Attach any images or video separately. Use `subgraph.json` to inspect the evidence.
+
+```text
+Task: {task}
+Current observation: {observation}
+CWM reference: {contents of context.txt}
+Question: {question}
+Options: {options}
+Answer with one option letter.
+```
+
 ## 🛠️ 2. Build your own CausGround
 
 Provide one action per record: **pre observation, action, post observation, outcome**. Keep your environment's action names.
